@@ -4,6 +4,8 @@ cache:
   - node_modules
 notifications:
   email: false
+  slack:
+    secure: CBPN+v71PrSxWdKu1f5TdlwR1THRkTzpoAHqL7OE+4f2p9mkCuj/oxaPXrJpDJozK1NZ6uGD9Me6ISz9GFUVEFpUz/m2QtL9ikMx4bSmI439/5txH//bXVuzghF/DtjcTqC+TfjEVENZ2UnvQimcfzT4PruGSUBd5abIVQLYNhlO9ik04KTuhLX76ABANWpeV5tvtMeP4yd9rMFuLTOQUUMR00ebUklXipmiC0inoZUc+63X3o83kMKACfmXGtwt5V5aq2Qk7xyVFxr+Jl7Xyc9k1o24Ih6r3Xm5kfiUn72wWEl+N4/gXxTQDlFxpVGTMQ9RR2/AFgyUMnYWIpiPd4Yh2QCIvw5FJUdtNy5Gm4Uvh86nRwHzYS51TkdAYjxOG4jqaxgLXaZRIdCuer6UGhrMJbaB5LkIBzb0iuq/7kzVZutCSZ8wxUPSsKcfyH8t6GMcCBzmYJosu4Dp88X4oNeTYOKIZqXMnP6mShXeE7hmP9AmfMJLiAlfO9x69rP4zuUMVEoPGl5u7/WpSu9G82GM2tJsQ2fZEUtAPhgyKbFxP0+UjL93albd8dC5e7N3qEs7XkdgjHlvbzJ9fjvgW3AWnvpLBs9Ulin1x1+rMe5f+fQNUSW4Y/2JvBetJooJp2tnoF+rKEeSRYeAIiQlD+5ocePadrSkCybgzZIeC8o=
 node_js:
 - '6'
 branches:
@@ -18,4 +20,5 @@ before_script:
 script:
 - if [[ "$TRAVIS_EVENT_TYPE" == "pull_request" ]]; then npm run test; fi
 after_success:
-- if [[ "$TRAVIS_EVENT_TYPE" == "push" && "$TRAVIS_BRANCH" == "master" ]]; then npm run release; fi
+- if [[ "$TRAVIS_EVENT_TYPE" == "push" && "$TRAVIS_BRANCH" == "master" ]]; then npm
+  run release; fi
