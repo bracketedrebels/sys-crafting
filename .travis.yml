@@ -1,0 +1,21 @@
+language: node_js
+cache:
+  directories:
+  - node_modules
+notifications:
+  email: false
+node_js:
+- '6'
+branches:
+  only:
+  - master
+  - develop
+install:
+- npm install
+before_script:
+- npm prune
+- npm run build
+script:
+- if [[ "$TRAVIS_EVENT_TYPE" == "pull_request" ]]; then npm run test; fi
+after_success:
+- if [[ "$TRAVIS_EVENT_TYPE" == "push" && "$TRAVIS_BRANCH" == "master" ]]; then npm run release; fi
